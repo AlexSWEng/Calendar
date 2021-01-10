@@ -11,6 +11,8 @@ public class Calendrier {
 	ArrayList<String> daysOfTheMonth = new ArrayList<String>();
 
 	int start;
+	
+	String testFirstCommit = "testFirstCommit";
 
 	String Lundi1;
 	String Lundi2;
