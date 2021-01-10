@@ -14,6 +14,7 @@ public class Calendrier {
 	
 	String testFirstCommit = "testFirstCommit";
 	String testSecondCommit = "testSeconCommit";
+	String testThirdCommit = "testThirdCommit";
 
 	String Lundi1;
 	String Lundi2;
