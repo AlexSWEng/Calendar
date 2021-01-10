@@ -2,6 +2,9 @@ package calendrier;
 
 import java.util.Scanner;
 
+/*
+ * This is an independant class used as model to calculate the number of days in each month of the year.
+ */
 public class NumberOfDaysInMonth {
   public static void main(String[] strings) {
 

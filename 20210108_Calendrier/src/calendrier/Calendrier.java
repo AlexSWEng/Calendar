@@ -10,107 +10,60 @@ public class Calendrier {
 	ArrayList<String> temp = new ArrayList<String>();
 	ArrayList<String> daysOfTheMonth = new ArrayList<String>();
 
-	int start;
-	
-	String testFirstCommit = "testFirstCommit";
-	String testSecondCommit = "testSeconCommit";
-	String testThirdCommit = "testThirdCommit";
-	
-	String testOnlineCommit = "testOnlineCommit";
-
-	String Lundi1;
-	String Lundi2;
-	String Lundi3;
-	String Lundi4;
-	String Lundi5;
-	String Lundi6;
-
-	String Mardi1;
-	String Mardi2;
-	String Mardi3;
-	String Mardi4;
-	String Mardi5;
-	String Mardi6;
-
-	String Mercredi1;
-	String Mercredi2;
-	String Mercredi3;
-	String Mercredi4;
-	String Mercredi5;
-	String Mercredi6;
-
-	String Jeudi1;
-	String Jeudi2;
-	String Jeudi3;
-	String Jeudi4;
-	String Jeudi5;
-	String Jeudi6;
-
-	String Vendredi1;
-	String Vendredi2;
-	String Vendredi3;
-	String Vendredi4;
-	String Vendredi5;
-	String Vendredi6;
-
-	String Samedi1;
-	String Samedi2;
-	String Samedi3;
-	String Samedi4;
-	String Samedi5;
-	String Samedi6;
-
-	String Dimanche1;
-	String Dimanche2;
-	String Dimanche3;
-	String Dimanche4;
-	String Dimanche5;
-	String Dimanche6;
+	int startingDayOfTheWeek;
 
 	DateTime today = new DateTime();
-
 	int day = today.getDayOfMonth();
 	int month = today.getMonthOfYear();
 	int year = today.getYear();
 
 	String titleDate;
 
+	/*
+	 * Prepares the title for the header with name of Month and Year
+	 */
 	public String getTitleDate() {
 		titleDate = convertMonthNumberToString() + " " + String.valueOf(year);
 		return titleDate;
 	}
-	
+
+	/*
+	 * Converts the number of the month to the name of the month
+	 */
 	public String convertMonthNumberToString() {
 		switch (month) {
-		case 1 : 
+		case 1:
 			return "Janvier";
-		case 2 : 
+		case 2:
 			return "Fevrier";
-		case 3 :
+		case 3:
 			return "Mars";
-		case 4 :
+		case 4:
 			return "Avril";
-		case 5 :
+		case 5:
 			return "Mai";
-		case 6 :
+		case 6:
 			return "Juin";
-		case 7 :
+		case 7:
 			return "Juillet";
-		case 8 :
+		case 8:
 			return "Aout";
-		case 9 : 
+		case 9:
 			return "Septembre";
-		case 10 :
+		case 10:
 			return "Octobre";
-		case 11 :
+		case 11:
 			return "Novembre";
-		case 12 :
+		case 12:
 			return "Decembre";
-		default :
-			return "yo";
+		default:
+			return "default";
 		}
 	}
 
+	/*
+	 * Fills ArayList init with 42 empty strings
+	 */
 	public void resetInit() {
 		init.clear();
 		for (int i = 1; i <= 42; i++) {
@@ -118,6 +71,9 @@ public class Calendrier {
 		}
 	}
 
+	/*
+	 * Fills ArayList temp with 42 empty strings
+	 */
 	public void resetTemp() {
 		temp.clear();
 		for (int i = 1; i <= 42; i++) {
@@ -125,22 +81,82 @@ public class Calendrier {
 		}
 	}
 
+	/*
+	 * Given the month number (1 to 12) and the year, returns the number of days in
+	 * said month
+	 */
+	public int calcDaysInMonth() {
+
+		int n = 0;
+
+		switch (month) {
+		case 1:
+			n = 31;
+			break;
+		case 2:
+			if ((year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0))) {
+				n = 29;
+			} else {
+				n = 28;
+			}
+			break;
+		case 3:
+			n = 31;
+			break;
+		case 4:
+			n = 30;
+			break;
+		case 5:
+			n = 31;
+			break;
+		case 6:
+			n = 30;
+			break;
+		case 7:
+			n = 31;
+			break;
+		case 8:
+			n = 31;
+			break;
+		case 9:
+			n = 30;
+			break;
+		case 10:
+			n = 31;
+			break;
+		case 11:
+			n = 30;
+			break;
+		case 12:
+			n = 31;
+		}
+		return n;
+	}
+
+	/*
+	 * Given the number of days in calcDaysInMonths(), fills ArrayList
+	 * daysOfTheMonths
+	 */
 	public void fillDaysOfTheMonthArrayList() {
-		for (int i = 1; i <= 31; i++) {
+		// we wanna put 28, 29, 30, or 31 here.
+		for (int i = 1; i <= calcDaysInMonth(); i++) {
 			daysOfTheMonth.add(String.valueOf(i));
 		}
 	}
 
+	/*
+	 * Given the starting day of the month (start), merges both ArrayLists
+	 * daysOfTheMonths into temp
+	 */
 	public void mergeWithTemp() {
-		for (int i = 0; i < 31; i++) {
-			temp.set(start + i, daysOfTheMonth.get(i));
+		for (int i = 0; i < calcDaysInMonth(); i++) {
+			temp.set(startingDayOfTheWeek + i, daysOfTheMonth.get(i));
 		}
 	}
 
-	public void calculateNumberOfDaysInMonth() {
-
-	}
-
+	/*
+	 * Sets month to next month
+	 */
 	public void monthPlus() {
 		if (month == 12) {
 			year++;
@@ -149,6 +165,9 @@ public class Calendrier {
 			month++;
 	}
 
+	/*
+	 * Sets month to previous month
+	 */
 	public void monthMinus() {
 		if (month == 1) {
 			year--;
@@ -156,7 +175,10 @@ public class Calendrier {
 		} else
 			month--;
 	}
-	
+
+	/*
+	 * Sets month to current month
+	 */
 	public void resetToToday() {
 		month = today.getMonthOfYear();
 		year = today.getYear();
@@ -166,50 +188,8 @@ public class Calendrier {
 	 * To get the starting point in the calendar
 	 */
 	public void defineStart() {
-
-		DateTime day1 = new DateTime(year, month, 1, 0, 0);
-		int day1DayofWeek = day1.getDayOfWeek();
-
-		switch (day1DayofWeek) {
-
-		case 1:
-			// start at lundi
-			start = 0;
-			break;
-		case 2:
-			// start at mardi
-			start = 1;
-			break;
-		case 3:
-			// start at mercredi
-			start = 2;
-			break;
-		case 4:
-			// start at jeudi
-			start = 3;
-			break;
-		case 5:
-			// start at vendredi
-			start = 4;
-			break;
-		case 6:
-			// start at samedi
-			start = 5;
-			break;
-		case 7:
-			// start at dimanche
-			start = 6;
-			break;
-		}
+		DateTime date = new DateTime(year, month, 1, 0, 0);
+		startingDayOfTheWeek = date.getDayOfWeek() - 1;
 	}
-
-//		DateTime date1 = new DateTime(1983, 8, 2, 15, 43);
-//		System.out.println(date1);
-//		System.out.println(date1.minusYears(1));
-//		System.out.println(date1.minusMonths(1));
-//		System.out.println(date1.minusDays(1));
-//		System.out.println(date1.getYear());
-//		System.out.println(date1.getMonthOfYear());
-//		System.out.println(date1.getDayOfMonth());
 
 }
