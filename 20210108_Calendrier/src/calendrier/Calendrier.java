@@ -125,14 +125,63 @@ public class Calendrier {
 		}
 	}
 
+	public int calcDaysInMonth() {
+
+		int n=0;
+
+		switch (month) {
+		case 1:
+			n = 31;
+			break;
+		case 2:
+			if ((year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0))) {
+				n = 29;
+			} else {
+				n = 28;
+			}
+			break;
+		case 3:
+			n = 31;
+			break;
+		case 4:
+			n = 30;
+			break;
+		case 5:
+			n = 31;
+			break;
+		case 6:
+			n = 30;
+			break;
+		case 7:
+			n = 31;
+			break;
+		case 8:
+			n = 31;
+			break;
+		case 9:
+			n = 30;
+			break;
+		case 10:
+			n = 31;
+			break;
+		case 11:
+			n = 30;
+			break;
+		case 12:
+			n = 31;
+		}
+		return n;
+	}
+	
 	public void fillDaysOfTheMonthArrayList() {
-		for (int i = 1; i <= 31; i++) {
+		//we wanna put 28, 29, 30, or 31 here.
+		for (int i = 1; i <= calcDaysInMonth(); i++) {
 			daysOfTheMonth.add(String.valueOf(i));
 		}
 	}
 
 	public void mergeWithTemp() {
-		for (int i = 0; i < 31; i++) {
+		for (int i = 0; i < calcDaysInMonth(); i++) {
 			temp.set(start + i, daysOfTheMonth.get(i));
 		}
 	}
