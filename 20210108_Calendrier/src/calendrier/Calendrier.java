@@ -13,6 +13,7 @@ public class Calendrier {
 	int start;
 	
 	String testFirstCommit = "testFirstCommit";
+	String testSecondCommit = "testSeconCommit";
 
 	String Lundi1;
 	String Lundi2;
