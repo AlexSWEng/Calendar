@@ -21,6 +21,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class CalendrierGUI {
+	
+	static Calendrier calendrier;
 
 	private JFrame frame;
 	private JLabel labelTitre;
@@ -77,14 +79,14 @@ public class CalendrierGUI {
 	private JLabel label55;
 	private JLabel label56;
 
-	static Calendrier calendrier;
+	
 	private JPanel panelFooter;
 	private JButton buttonToday;
 	private JTextField txtFieldYear;
 	private JTextField txtFieldMonth;
 	private JButton btnNewButton;
 
-	/**
+	/*
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
@@ -103,7 +105,7 @@ public class CalendrierGUI {
 		});
 	}
 
-	/**
+	/*
 	 * Create the application.
 	 */
 	public CalendrierGUI() {
@@ -117,10 +119,12 @@ public class CalendrierGUI {
 
 	}
 
-	/**
-	 * Initialize the contents of the frame.
+	/*
+	 * The method draw() will transfer the content of the ArrayList temp into each
+	 * label of he calendar. It will also display the title of the calendar on top.
 	 */
 	public void draw() {
+		labelTitre.setText(calendrier.getTitleDate());
 		label00.setText(calendrier.temp.get(0));
 		label01.setText(calendrier.temp.get(1));
 		label02.setText(calendrier.temp.get(2));
@@ -163,17 +167,27 @@ public class CalendrierGUI {
 		label54.setText(calendrier.temp.get(39));
 		label55.setText(calendrier.temp.get(40));
 		label56.setText(calendrier.temp.get(41));
-		labelTitre.setText(calendrier.getTitleDate());
 	}
 
+	/*
+	 * This method is used in conjunction with labelDateOut() to make the month
+	 * labels appear BOLD when the mouse cursor is hovering over them
+	 */
 	public void labelDateIn(JLabel label) {
 		label.setFont(new Font("Tahoma", Font.BOLD, 16));
 	}
 
+	/*
+	 * This method is used in conjunction with labelDateIn() to make the month
+	 * labels appear PLAIN when the mouse cursor is not hovering over them
+	 */
 	public void labelDateOut(JLabel label) {
 		label.setFont(new Font("Tahoma", Font.PLAIN, 15));
 	}
 
+	/*
+	 * Initialize the contents of the frame. Add listeners to the buttons.
+	 */
 	private void initialize() {
 
 		frame = new JFrame();
@@ -892,10 +906,10 @@ public class CalendrierGUI {
 		});
 		label56.setForeground(new Color(0, 0, 255));
 		panelCentre.add(label56);
-		
+
 		panelFooter = new JPanel();
 		frame.getContentPane().add(panelFooter, BorderLayout.SOUTH);
-		
+
 		buttonToday = new JButton("Aujourd'hui");
 		buttonToday.setBackground(new Color(216, 191, 216));
 		buttonToday.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -911,52 +925,37 @@ public class CalendrierGUI {
 		});
 		panelFooter.setLayout(new GridLayout(0, 4, 0, 0));
 		panelFooter.add(buttonToday);
-		
+
 		txtFieldMonth = new JTextField();
 		txtFieldMonth.setText("12");
 		panelFooter.add(txtFieldMonth);
 		txtFieldMonth.setColumns(10);
-		
+
 		txtFieldYear = new JTextField();
 		txtFieldYear.setText("1983");
 		panelFooter.add(txtFieldYear);
 		txtFieldYear.setColumns(10);
-		
+
 		btnNewButton = new JButton("Afficher");
 		btnNewButton.setBackground(new Color(216, 191, 216));
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if (!txtFieldMonth.getText().equalsIgnoreCase("") && !txtFieldYear.getText().equalsIgnoreCase("")) {
-				int monthEntered = Integer.parseInt(txtFieldMonth.getText());
-				int yearEntered = Integer.parseInt(txtFieldYear.getText());
-				if (monthEntered>0 && monthEntered<=12 && yearEntered>= -1000000 && yearEntered<= 1000000) {
-					calendrier.month = monthEntered;
-					calendrier.year = yearEntered;
-					calendrier.resetTemp();
-					calendrier.defineStart();
-					calendrier.mergeWithTemp();
-					draw();
+					int monthEntered = Integer.parseInt(txtFieldMonth.getText());
+					int yearEntered = Integer.parseInt(txtFieldYear.getText());
+					if (monthEntered > 0 && monthEntered <= 12 && yearEntered >= -1000000 && yearEntered <= 1000000) {
+						calendrier.month = monthEntered;
+						calendrier.year = yearEntered;
+						calendrier.resetTemp();
+						calendrier.defineStart();
+						calendrier.mergeWithTemp();
+						draw();
+					}
 				}
-			}
 			}
 		});
 		panelFooter.add(btnNewButton);
-		
-		
-//		buttonBack.setFont(new Font("Tahoma", Font.BOLD, 11));
-//		buttonBack.addMouseListener(new MouseAdapter() {
-//			@Override
-//			public void mouseClicked(MouseEvent e) {
-//				calendrier.resetTemp();
-//				calendrier.monthMinus();
-//				calendrier.defineStart();
-//				calendrier.mergeWithTemp();
-//				draw();
-//			}
-//		});
-//		frame.getContentPane().add(buttonBack, BorderLayout.WEST);
-
 
 	}
 

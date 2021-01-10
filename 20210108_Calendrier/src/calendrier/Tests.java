@@ -2,6 +2,9 @@ package calendrier;
 
 import org.joda.time.*;
 
+/*
+ * This is an independant class used to do various tests on package joda.time
+ */
 public class Tests {
 	public static void main(String[] args) {
 		DateTime date1 = new DateTime(1983, 8, 2, 15, 43);
