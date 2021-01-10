@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import org.joda.time.*;
 
 public class Calendrier {
+	
+	String testNewBranch = "testNewBranch";
 
 	ArrayList<String> init = new ArrayList<String>();
 	ArrayList<String> temp = new ArrayList<String>();
