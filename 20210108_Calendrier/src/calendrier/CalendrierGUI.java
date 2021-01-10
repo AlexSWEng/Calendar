@@ -174,7 +174,7 @@ public class CalendrierGUI {
 	 * labels appear BOLD when the mouse cursor is hovering over them
 	 */
 	public void labelDateIn(JLabel label) {
-		label.setFont(new Font("Tahoma", Font.BOLD, 16));
+		label.setFont(new Font("Tahoma", Font.BOLD, 22));
 	}
 
 	/*
@@ -182,7 +182,7 @@ public class CalendrierGUI {
 	 * labels appear PLAIN when the mouse cursor is not hovering over them
 	 */
 	public void labelDateOut(JLabel label) {
-		label.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label.setFont(new Font("Tahoma", Font.PLAIN, 20));
 	}
 
 	/*
@@ -191,6 +191,7 @@ public class CalendrierGUI {
 	private void initialize() {
 
 		frame = new JFrame();
+		frame.getContentPane().setBackground(new Color(173, 216, 230));
 		frame.setBounds(100, 100, 450, 450);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
@@ -201,7 +202,7 @@ public class CalendrierGUI {
 		frame.getContentPane().add(labelTitre, BorderLayout.NORTH);
 
 		buttonForward = new JButton(">");
-		buttonForward.setBackground(new Color(188, 143, 143));
+		buttonForward.setBackground(new Color(210, 180, 140));
 		buttonForward.setFont(new Font("Tahoma", Font.BOLD, 11));
 		buttonForward.addMouseListener(new MouseAdapter() {
 			@Override
@@ -216,7 +217,7 @@ public class CalendrierGUI {
 		frame.getContentPane().add(buttonForward, BorderLayout.EAST);
 
 		buttonBack = new JButton("<");
-		buttonBack.setBackground(new Color(188, 143, 143));
+		buttonBack.setBackground(new Color(210, 180, 140));
 		buttonBack.setFont(new Font("Tahoma", Font.BOLD, 11));
 		buttonBack.addMouseListener(new MouseAdapter() {
 			@Override
@@ -236,37 +237,37 @@ public class CalendrierGUI {
 		panelCentre.setLayout(new GridLayout(0, 7, 0, 0));
 
 		labelLundi = new JLabel("Lu");
-		labelLundi.setFont(new Font("Tahoma", Font.BOLD, 15));
+		labelLundi.setFont(new Font("Dialog", Font.BOLD, 20));
 		panelCentre.add(labelLundi);
 
 		labelMardi = new JLabel("Ma");
-		labelMardi.setFont(new Font("Tahoma", Font.BOLD, 15));
+		labelMardi.setFont(new Font("Dialog", Font.BOLD, 20));
 		panelCentre.add(labelMardi);
 
 		labelMercredi = new JLabel("Me");
-		labelMercredi.setFont(new Font("Tahoma", Font.BOLD, 15));
+		labelMercredi.setFont(new Font("Dialog", Font.BOLD, 20));
 		panelCentre.add(labelMercredi);
 
 		labelJeudi = new JLabel("Je");
-		labelJeudi.setFont(new Font("Tahoma", Font.BOLD, 15));
+		labelJeudi.setFont(new Font("Dialog", Font.BOLD, 20));
 		panelCentre.add(labelJeudi);
 
 		labelVendredi = new JLabel("Ve");
-		labelVendredi.setFont(new Font("Tahoma", Font.BOLD, 15));
+		labelVendredi.setFont(new Font("Dialog", Font.BOLD, 20));
 		panelCentre.add(labelVendredi);
 
 		labelSamedi = new JLabel("Sa");
-		labelSamedi.setFont(new Font("Tahoma", Font.BOLD, 15));
+		labelSamedi.setFont(new Font("Dialog", Font.BOLD, 20));
 		labelSamedi.setForeground(new Color(0, 0, 255));
 		panelCentre.add(labelSamedi);
 
 		labelDimanche = new JLabel("Di");
-		labelDimanche.setFont(new Font("Tahoma", Font.BOLD, 15));
+		labelDimanche.setFont(new Font("Dialog", Font.BOLD, 20));
 		labelDimanche.setForeground(new Color(0, 0, 255));
 		panelCentre.add(labelDimanche);
 
 		label00 = new JLabel(calendrier.init.get(0));
-		label00.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label00.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label00.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -281,7 +282,7 @@ public class CalendrierGUI {
 		panelCentre.add(label00);
 
 		label01 = new JLabel(calendrier.init.get(1));
-		label01.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label01.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label01.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -296,7 +297,7 @@ public class CalendrierGUI {
 		panelCentre.add(label01);
 
 		label02 = new JLabel(calendrier.init.get(2));
-		label02.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label02.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label02.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -311,7 +312,7 @@ public class CalendrierGUI {
 		panelCentre.add(label02);
 
 		label03 = new JLabel(calendrier.init.get(3));
-		label03.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label03.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label03.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -326,7 +327,7 @@ public class CalendrierGUI {
 		panelCentre.add(label03);
 
 		label04 = new JLabel(calendrier.init.get(4));
-		label04.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label04.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label04.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -341,7 +342,7 @@ public class CalendrierGUI {
 		panelCentre.add(label04);
 
 		label05 = new JLabel(calendrier.init.get(5));
-		label05.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label05.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label05.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -357,7 +358,7 @@ public class CalendrierGUI {
 		panelCentre.add(label05);
 
 		label06 = new JLabel(calendrier.init.get(6));
-		label06.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label06.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label06.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -373,7 +374,7 @@ public class CalendrierGUI {
 		panelCentre.add(label06);
 
 		label10 = new JLabel(calendrier.init.get(7));
-		label10.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label10.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label10.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -388,7 +389,7 @@ public class CalendrierGUI {
 		panelCentre.add(label10);
 
 		label11 = new JLabel(calendrier.init.get(8));
-		label11.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label11.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label11.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -403,7 +404,7 @@ public class CalendrierGUI {
 		panelCentre.add(label11);
 
 		label12 = new JLabel(calendrier.init.get(9));
-		label12.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label12.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label12.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -418,7 +419,7 @@ public class CalendrierGUI {
 		panelCentre.add(label12);
 
 		label13 = new JLabel(calendrier.init.get(10));
-		label13.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label13.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label13.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -433,7 +434,7 @@ public class CalendrierGUI {
 		panelCentre.add(label13);
 
 		label14 = new JLabel(calendrier.init.get(11));
-		label14.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label14.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label14.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -448,7 +449,7 @@ public class CalendrierGUI {
 		panelCentre.add(label14);
 
 		label15 = new JLabel(calendrier.init.get(12));
-		label15.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label15.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label15.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -464,7 +465,7 @@ public class CalendrierGUI {
 		panelCentre.add(label15);
 
 		label16 = new JLabel(calendrier.init.get(13));
-		label16.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label16.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label16.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -480,7 +481,7 @@ public class CalendrierGUI {
 		panelCentre.add(label16);
 
 		label20 = new JLabel(calendrier.init.get(14));
-		label20.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label20.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label20.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -495,7 +496,7 @@ public class CalendrierGUI {
 		panelCentre.add(label20);
 
 		label21 = new JLabel(calendrier.init.get(15));
-		label21.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label21.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label21.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -510,7 +511,7 @@ public class CalendrierGUI {
 		panelCentre.add(label21);
 
 		label22 = new JLabel(calendrier.init.get(16));
-		label22.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label22.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label22.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -525,7 +526,7 @@ public class CalendrierGUI {
 		panelCentre.add(label22);
 
 		label23 = new JLabel(calendrier.init.get(17));
-		label23.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label23.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label23.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -540,7 +541,7 @@ public class CalendrierGUI {
 		panelCentre.add(label23);
 
 		label24 = new JLabel(calendrier.init.get(18));
-		label24.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label24.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label24.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -555,7 +556,7 @@ public class CalendrierGUI {
 		panelCentre.add(label24);
 
 		label25 = new JLabel(calendrier.init.get(19));
-		label25.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label25.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label25.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -571,7 +572,7 @@ public class CalendrierGUI {
 		panelCentre.add(label25);
 
 		label26 = new JLabel(calendrier.init.get(20));
-		label26.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label26.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label26.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -587,7 +588,7 @@ public class CalendrierGUI {
 		panelCentre.add(label26);
 
 		label30 = new JLabel(calendrier.init.get(21));
-		label30.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label30.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label30.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -602,7 +603,7 @@ public class CalendrierGUI {
 		panelCentre.add(label30);
 
 		label31 = new JLabel(calendrier.init.get(22));
-		label31.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label31.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label31.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -617,7 +618,7 @@ public class CalendrierGUI {
 		panelCentre.add(label31);
 
 		label32 = new JLabel(calendrier.init.get(23));
-		label32.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label32.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label32.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -632,7 +633,7 @@ public class CalendrierGUI {
 		panelCentre.add(label32);
 
 		label33 = new JLabel(calendrier.init.get(24));
-		label33.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label33.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label33.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -647,7 +648,7 @@ public class CalendrierGUI {
 		panelCentre.add(label33);
 
 		label34 = new JLabel(calendrier.init.get(25));
-		label34.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label34.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label34.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -662,7 +663,7 @@ public class CalendrierGUI {
 		panelCentre.add(label34);
 
 		label35 = new JLabel(calendrier.init.get(26));
-		label35.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label35.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label35.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -678,7 +679,7 @@ public class CalendrierGUI {
 		panelCentre.add(label35);
 
 		label36 = new JLabel(calendrier.init.get(27));
-		label36.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label36.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label36.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -694,7 +695,7 @@ public class CalendrierGUI {
 		panelCentre.add(label36);
 
 		label40 = new JLabel(calendrier.init.get(28));
-		label40.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label40.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label40.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -709,7 +710,7 @@ public class CalendrierGUI {
 		panelCentre.add(label40);
 
 		label41 = new JLabel(calendrier.init.get(29));
-		label41.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label41.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label41.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -724,7 +725,7 @@ public class CalendrierGUI {
 		panelCentre.add(label41);
 
 		label42 = new JLabel(calendrier.init.get(30));
-		label42.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label42.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label42.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -739,7 +740,7 @@ public class CalendrierGUI {
 		panelCentre.add(label42);
 
 		label43 = new JLabel(calendrier.init.get(31));
-		label43.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label43.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label43.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -754,7 +755,7 @@ public class CalendrierGUI {
 		panelCentre.add(label43);
 
 		label44 = new JLabel(calendrier.init.get(32));
-		label44.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label44.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label44.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -769,7 +770,7 @@ public class CalendrierGUI {
 		panelCentre.add(label44);
 
 		label45 = new JLabel(calendrier.init.get(33));
-		label45.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label45.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label45.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -785,7 +786,7 @@ public class CalendrierGUI {
 		panelCentre.add(label45);
 
 		label46 = new JLabel(calendrier.init.get(34));
-		label46.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label46.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label46.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -801,7 +802,7 @@ public class CalendrierGUI {
 		panelCentre.add(label46);
 
 		label50 = new JLabel(calendrier.init.get(35));
-		label50.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label50.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label50.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -816,7 +817,7 @@ public class CalendrierGUI {
 		panelCentre.add(label50);
 
 		label51 = new JLabel(calendrier.init.get(36));
-		label51.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label51.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label51.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -831,7 +832,7 @@ public class CalendrierGUI {
 		panelCentre.add(label51);
 
 		label52 = new JLabel(calendrier.init.get(37));
-		label52.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label52.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label52.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -846,7 +847,7 @@ public class CalendrierGUI {
 		panelCentre.add(label52);
 
 		label53 = new JLabel(calendrier.init.get(38));
-		label53.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label53.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label53.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -861,7 +862,7 @@ public class CalendrierGUI {
 		panelCentre.add(label53);
 
 		label54 = new JLabel(calendrier.init.get(39));
-		label54.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label54.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label54.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -876,7 +877,7 @@ public class CalendrierGUI {
 		panelCentre.add(label54);
 
 		label55 = new JLabel(calendrier.init.get(40));
-		label55.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label55.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label55.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -892,7 +893,7 @@ public class CalendrierGUI {
 		panelCentre.add(label55);
 
 		label56 = new JLabel(calendrier.init.get(41));
-		label56.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label56.setFont(new Font("Dialog", Font.PLAIN, 20));
 		label56.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -911,7 +912,7 @@ public class CalendrierGUI {
 		frame.getContentPane().add(panelFooter, BorderLayout.SOUTH);
 
 		buttonToday = new JButton("Aujourd'hui");
-		buttonToday.setBackground(new Color(216, 191, 216));
+		buttonToday.setBackground(new Color(135, 206, 250));
 		buttonToday.setFont(new Font("Tahoma", Font.BOLD, 11));
 		buttonToday.addMouseListener(new MouseAdapter() {
 			@Override
@@ -937,7 +938,7 @@ public class CalendrierGUI {
 		txtFieldYear.setColumns(10);
 
 		btnNewButton = new JButton("Afficher");
-		btnNewButton.setBackground(new Color(216, 191, 216));
+		btnNewButton.setBackground(new Color(135, 206, 250));
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
