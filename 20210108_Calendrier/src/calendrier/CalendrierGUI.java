@@ -21,8 +21,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class CalendrierGUI {
-	
+
 	static Calendrier calendrier;
+
+	int monthEntered = 0;
+	int yearEntered = 0;
 
 	private JFrame frame;
 	private JLabel labelTitre;
@@ -79,12 +82,11 @@ public class CalendrierGUI {
 	private JLabel label55;
 	private JLabel label56;
 
-	
 	private JPanel panelFooter;
 	private JButton buttonToday;
 	private JTextField txtFieldYear;
 	private JTextField txtFieldMonth;
-	private JButton btnNewButton;
+	private JButton buttonAfficher;
 
 	/*
 	 * Launch the application.
@@ -937,27 +939,76 @@ public class CalendrierGUI {
 		panelFooter.add(txtFieldYear);
 		txtFieldYear.setColumns(10);
 
-		btnNewButton = new JButton("Afficher");
-		btnNewButton.setBackground(new Color(135, 206, 250));
-		btnNewButton.addMouseListener(new MouseAdapter() {
+		buttonAfficher = new JButton("Afficher");
+		buttonAfficher.setBackground(new Color(135, 206, 250));
+		buttonAfficher.addMouseListener(new MouseAdapter() {
+
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if (!txtFieldMonth.getText().equalsIgnoreCase("") && !txtFieldYear.getText().equalsIgnoreCase("")) {
-					int monthEntered = Integer.parseInt(txtFieldMonth.getText());
-					int yearEntered = Integer.parseInt(txtFieldYear.getText());
-					if (monthEntered > 0 && monthEntered <= 12 && yearEntered >= -1000000 && yearEntered <= 1000000) {
-						calendrier.month = monthEntered;
-						calendrier.year = yearEntered;
-						calendrier.resetTemp();
-						calendrier.defineStart();
-						calendrier.mergeWithTemp();
-						draw();
-					}
+
+//				if (!txtFieldMonth.getText().equalsIgnoreCase("") && !txtFieldYear.getText().equalsIgnoreCase("")) {
+//				int monthEntered = Integer.parseInt(txtFieldMonth.getText());
+//				int yearEntered = Integer.parseInt(txtFieldYear.getText());
+//				if (monthEntered > 0 && monthEntered <= 12 && yearEntered >= -1000000 && yearEntered <= 1000000) {
+//					calendrier.month = monthEntered;
+//					calendrier.year = yearEntered;
+//					calendrier.resetTemp();
+//					calendrier.defineStart();
+//					calendrier.mergeWithTemp();
+//					draw();
+//				} else {
+//					txtFieldMonth.setText("Mois ?");
+//					txtFieldYear.setText("Année ?");
+//				}
+//			}
+
+				try {
+
+					verifyForm();
+					calendrier.month = monthEntered;
+					calendrier.year = yearEntered;
+					calendrier.resetTemp();
+					calendrier.defineStart();
+					calendrier.mergeWithTemp();
+					draw();
+				} catch (NumberFormatException e1) { // si on rentre autre chose que des nombres
+					txtFieldMonth.setText("Entrez un chiffre");
+				} catch (WrongDateException e2) { // si le mois est inférieur ou supérieur à 12
+					txtFieldMonth.setText(e2.getMsg());
 				}
+
 			}
+
+			private void verifyForm() throws WrongDateException {
+
+				// On vérifie le txtFieldMonth
+				// On commence par vérifier si c'est un chiffre
+				// Comme verifyForm() throws NumberFormatException, si le programme se plante
+				// ici, il récupérera l'Exception dans le catch de la méthode appelante
+				// C'est pour ça qu'il n'y a pas de catch ici, mais un throw à la place
+
+				monthEntered = Integer.parseInt(txtFieldMonth.getText());
+
+				// Puis on vérifie si ce chiffre est bien compris entre 1 et 12 inclus
+				// Si ce n'est pas le cas, on crée une nouvelle Exception avec un msg en
+				// parmètre
+				// cet objet Exception est renvoyé à la méthode appelante du verifyForm()
+
+				if (monthEntered < 1) {
+					throw new WrongDateException("trop petit");
+				} else if (monthEntered > 12) {
+					throw new WrongDateException("trop grand");
+				}
+
+				// Maintenant on vérifie le txtFieldYear
+				// Pareil, si le programme se plante il throw NumberFormatException à la méthode
+				// appelante
+				yearEntered = Integer.parseInt(txtFieldYear.getText());
+			}
+
 		});
-		panelFooter.add(btnNewButton);
+
+		panelFooter.add(buttonAfficher);
 
 	}
-
 }
